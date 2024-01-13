@@ -6,12 +6,47 @@
 //
 
 import SwiftUI
+import Combine
 
 @main
 struct IPTrackerApp: App {
+    private let viewModel = ViewModel()
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        MenuScene(viewModel: viewModel)
+    }
+}
+
+struct MenuScene: Scene {
+    @ObservedObject fileprivate var viewModel: ViewModel
+    
+    fileprivate init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        viewModel.startFetching()
+    }
+    
+    var body: some Scene {
+        MenuBarExtra(
+            content: {
+                MenuSceneContent(lastUpdate: viewModel.lastUpdate)
+            }, label: {
+                Text(viewModel.ipAddressState)
+            }
+        )
+    }
+}
+
+struct MenuSceneContent: View {
+    var lastUpdate: String
+    
+    var body: some View {
+        VStack {
+            Text(lastUpdate)
+            Divider()
+            Button {
+                NSApplication.shared.terminate(nil)
+            } label: {
+                Text("Quit")
+            }
         }
     }
 }

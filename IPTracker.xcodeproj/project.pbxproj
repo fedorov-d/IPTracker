@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		0A9FCCC22B52AC120092A0AD /* IPTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9FCCC12B52AC120092A0AD /* IPTrackerApp.swift */; };
-		0A9FCCC42B52AC120092A0AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9FCCC32B52AC120092A0AD /* ContentView.swift */; };
 		0A9FCCC62B52AC130092A0AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9FCCC52B52AC130092A0AD /* Assets.xcassets */; };
 		0A9FCCC92B52AC130092A0AD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A9FCCC82B52AC130092A0AD /* Preview Assets.xcassets */; };
+		0A9FCCD12B5313270092A0AD /* IPAddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9FCCD02B5313270092A0AD /* IPAddressData.swift */; };
+		0A9FCCD32B5313510092A0AD /* MenuSceneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9FCCD22B5313510092A0AD /* MenuSceneViewModel.swift */; };
+		0A9FCCD52B53137A0092A0AD /* IPFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9FCCD42B53137A0092A0AD /* IPFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0A9FCCBE2B52AC120092A0AD /* IPTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A9FCCC12B52AC120092A0AD /* IPTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPTrackerApp.swift; sourceTree = "<group>"; };
-		0A9FCCC32B52AC120092A0AD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A9FCCC52B52AC130092A0AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A9FCCC82B52AC130092A0AD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A9FCCCA2B52AC130092A0AD /* IPTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IPTracker.entitlements; sourceTree = "<group>"; };
+		0A9FCCD02B5313270092A0AD /* IPAddressData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPAddressData.swift; sourceTree = "<group>"; };
+		0A9FCCD22B5313510092A0AD /* MenuSceneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSceneViewModel.swift; sourceTree = "<group>"; };
+		0A9FCCD42B53137A0092A0AD /* IPFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				0A9FCCC12B52AC120092A0AD /* IPTrackerApp.swift */,
-				0A9FCCC32B52AC120092A0AD /* ContentView.swift */,
+				0A9FCCD02B5313270092A0AD /* IPAddressData.swift */,
+				0A9FCCD22B5313510092A0AD /* MenuSceneViewModel.swift */,
+				0A9FCCD42B53137A0092A0AD /* IPFetcher.swift */,
 				0A9FCCC52B52AC130092A0AD /* Assets.xcassets */,
 				0A9FCCCA2B52AC130092A0AD /* IPTracker.entitlements */,
 				0A9FCCC72B52AC130092A0AD /* Preview Content */,
@@ -139,8 +145,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A9FCCC42B52AC120092A0AD /* ContentView.swift in Sources */,
+				0A9FCCD52B53137A0092A0AD /* IPFetcher.swift in Sources */,
 				0A9FCCC22B52AC120092A0AD /* IPTrackerApp.swift in Sources */,
+				0A9FCCD12B5313270092A0AD /* IPAddressData.swift in Sources */,
+				0A9FCCD32B5313510092A0AD /* MenuSceneViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +287,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -306,6 +315,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

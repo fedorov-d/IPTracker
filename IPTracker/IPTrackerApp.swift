@@ -29,7 +29,7 @@ struct MenuScene: Scene {
             content: {
                 MenuSceneContent(lastUpdate: viewModel.lastUpdate)
             }, label: {
-                Text(viewModel.ipAddressState)
+                Text(viewModel.ipAddress)
             }
         )
     }

@@ -9,14 +9,14 @@ import SwiftUI
 import Combine
 
 final class MenuSceneViewModel: ObservableObject {
-    @Published var ipAddressState: String
+    @Published var ipAddress: String
     @Published var lastUpdate: String
     
     private var fetcher = IPFetcher()
     private var cancellable: AnyCancellable?
     
     init() {
-        ipAddressState = String(localized: "fetching")
+        ipAddress = String(localized: "fetching")
         lastUpdate = String(localized: "lastUpdate") + " " + String(localized: "never")
     }
     
@@ -27,11 +27,11 @@ final class MenuSceneViewModel: ObservableObject {
             case .none:
                 break
             case .success(let ipAddressData):
-                ipAddressState = ipAddressData.ip
+                ipAddress = ipAddressData.ip
                 let time = ipAddressData.updateDate.formatted(date: .omitted, time: .standard)
                 lastUpdate = "\(String(localized: "lastUpdate")) \(time)"                
             case .failure:
-                ipAddressState = "Error"
+                ipAddress = "Error"
             }
         }
         fetcher.startFetching()

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 final class IPFetcher: ObservableObject {
     private let source = "https://api.ipify.org?format=json"
@@ -25,16 +26,23 @@ final class IPFetcher: ObservableObject {
             do {
                 let (data, response) = try await urlSession.data(for: request)
                 if let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                    print("Did receive result: \(String(decoding: data, as: UTF8.self))")
+                    Logger.main.debug("Did receive result: \(String(decoding: data, as: UTF8.self))")
                     let result = try JSONDecoder().decode(IPAddressData.self, from: data)
                     self.result = .success(result)
                 }
             } catch {
                 self.result = .failure(error)
-                print("Error fetching data: \(error)")
+                Logger.main.debug("Error fetching data: \(error)")
             }
             try await Task.sleep(for: .seconds(3))
             fetch()
         }
     }
+}
+
+extension Logger {
+    static var main = Logger(
+        subsystem: "com.df.IPTracker",
+        category: "main"
+    )
 }

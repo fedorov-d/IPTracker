@@ -10,16 +10,16 @@ import Combine
 
 @main
 struct IPTrackerApp: App {
-    private let viewModel = ViewModel()
+    private let viewModel = MenuSceneViewModel()
     var body: some Scene {
         MenuScene(viewModel: viewModel)
     }
 }
 
 struct MenuScene: Scene {
-    @ObservedObject fileprivate var viewModel: ViewModel
+    @ObservedObject fileprivate var viewModel: MenuSceneViewModel
     
-    fileprivate init(viewModel: ViewModel) {
+    fileprivate init(viewModel: MenuSceneViewModel) {
         self.viewModel = viewModel
         viewModel.startFetching()
     }
@@ -45,7 +45,7 @@ struct MenuSceneContent: View {
             Button {
                 NSApplication.shared.terminate(nil)
             } label: {
-                Text("Quit")
+                Text("quit")
             }
         }
     }

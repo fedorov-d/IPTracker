@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-final class ViewModel: ObservableObject {
+final class MenuSceneViewModel: ObservableObject {
     @Published var ipAddressState: String
     @Published var lastUpdate: String
     
@@ -16,8 +16,8 @@ final class ViewModel: ObservableObject {
     private var cancellable: AnyCancellable?
     
     init() {
-        ipAddressState = "Fetching..."
-        lastUpdate = "Last update: never"
+        ipAddressState = String(localized: "fetching")
+        lastUpdate = String(localized: "lastUpdate") + " " + String(localized: "never")
     }
     
     func startFetching() {
@@ -28,8 +28,8 @@ final class ViewModel: ObservableObject {
                 break
             case .success(let ipAddressData):
                 ipAddressState = ipAddressData.ip
-                lastUpdate = "Last update: \(ipAddressData.updateDate.formatted(date: .omitted, time: .standard))"
-                print("new date: \(lastUpdate)")
+                let time = ipAddressData.updateDate.formatted(date: .omitted, time: .standard)
+                lastUpdate = "\(String(localized: "lastUpdate")) \(time)"                
             case .failure:
                 ipAddressState = "Error"
             }
